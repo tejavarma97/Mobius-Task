@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-4 col-xl-4">
+      <form [formGroup]="searchForm">
+          <div class="form-group">
+              <input type="text" class="form-control" formControlName="search">
+          </div>
+      </form>
+    </div>
+    <div class="col-md-2 col-xl-2">
+      <button class="btn btn-primary" (click)="search_click()" >Search</button>
+    </div> 
+  </div>
+  <br>
+  <div class="row">
+    <div>
+      <h5>Total Count : {{total_count}}</h5>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <!-- <th>Image</th> -->
+        <th>Login</th>
+        <th>Id</th>
+        <th>Type</th>
+        <th>Score</th>
+        <!-- <th>Site Admin</th> -->
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of data">
+          <!-- <td class="text-center"> <img src="{{data.avatar_url}}" alt="" width="30" height="30"> </td> -->
+          <td><a routerLink="/profile" [state]=data.login>{{data.login}}</a> </td>
+          <td>{{data.id}}</td>
+          <td>{{data.type}}</td>
+          <td>{{data.score}}</td>
+          <!-- <td>{{data.site_admin }}</td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+       
